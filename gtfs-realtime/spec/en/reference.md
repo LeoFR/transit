@@ -65,6 +65,7 @@ Metadata about a feed, included in feed messages.
 | **gtfs_realtime_version** | [string](https://developers.google.com/protocol-buffers/docs/proto#scalar) | required | Version of the feed specification. The current version is 1.0. |
 | **incrementality** | [Incrementality](#enum-incrementality) | optional |
 | **timestamp** | [uint64](https://developers.google.com/protocol-buffers/docs/proto#scalar) | optional | This timestamp identifies the moment when the content of this feed has been created (in server time). In POSIX time (i.e., number of seconds since January 1st 1970 00:00:00 UTC). To avoid time skew between systems producing and consuming realtime information it is strongly advised to derive timestamp from a time server. It is completely acceptable to use Stratum 3 or even lower strata servers since time differences up to a couple of seconds are tolerable. |
+| **feed_version_number** | [uint64](https://developers.google.com/protocol-buffers/docs/proto#scalar) | optional | This field contains a non-negative integer used to sync the static GTFS and the GTFS-rt. It should be passed in the HTTP request to get the GTFS-rt. When a producer roll out a new GTFS with new ids, it should allow the consumer to use the old data set and the old ids, or the new data set and the new ids, for a reasonable amount of time: 3 calendar days at least, 7 at much as possible.  |
 
 ## _enum_ Incrementality
 
